@@ -34,7 +34,7 @@ video {
       left: 0;
       width: 100%;
       height: 100vh;
-      background: #1b1b1b;
+      background: #043c74;
       opacity: 0.8;
 }
 
@@ -46,7 +46,7 @@ video {
 }
 
 .header h1 {
-      color: #d3ae87;
+      color: #6184a2;
       font-size: 80px !important;
 }
 
@@ -71,7 +71,7 @@ video {
 }
 
 .nav.scrolled {
-      background-color: #161616 !important;
+      background-color: #043c74 !important;
       transition: background-color 500ms linear;
 }
 
@@ -86,7 +86,7 @@ video {
 }
 
 .nav #brand a {
-      color: #fff;
+      color: #b2c8d1;
       font-family: Poppins !important;
       transition: all 500ms ease-out;
 }
@@ -120,7 +120,7 @@ video {
 
 .nav #menu li a:hover {
       text-decoration: none;
-      color: #fff;
+      color: #b2c8d1;
       transition: all 500ms ease-out;
 }
 
@@ -129,7 +129,7 @@ video {
       right: 40px;
       top: 20px;
       font-weight: 300;
-      color: #fff;
+      color: #b2c8d1;
       text-transform: uppercase;
       letter-spacing: 2px;
       z-index: 2;
@@ -145,7 +145,7 @@ video {
       position: absolute;
       right: 30px;
       font-weight: 300;
-      color: #fff;
+      color: #b2c8d1;
       text-transform: uppercase;
       letter-spacing: 2px;
       z-index: 2;
@@ -247,7 +247,7 @@ section {
 }
 
 .section-index {
-      color: #d3ae87;
+      color:#3c6c94;
       font-weight: bolder;
       font-size: 20px;
       font-family: Poppins !important;
@@ -286,7 +286,7 @@ button {
 /*--------------- services section starts  --------------- */
 
 .services {
-      background: #161616;
+      background: #043c74;
 }
 
 .service {
@@ -295,7 +295,7 @@ button {
 
 .icon ion-icon {
       font-size: 36px;
-      color: #d3ae87;
+      color: #45c9ed;
 }
 
 .icon-title {
@@ -312,7 +312,7 @@ button {
 }
 
 .team-img {
-      background: grey;
+      background: blue;
       height: 340px;
 }
 
@@ -341,61 +341,6 @@ button {
       background-size: cover;
 }
 
-.team-two {
-      background: url(team-two.jpg) no-repeat 50% 50%;
-      background-size: cover;
-}
-
-/*--------------- newsletter section starts  --------------- */
-
-.newsletter {
-      padding: 140px 0;
-      background: #161616;
-}
-
-.newsletter input {
-      text-transform: uppercase;
-}
-
-.newsletter .news-data {
-      max-width: 650px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-}
-
-.newsletter h1 {
-      color: #fff;
-      margin-bottom: 40px;
-}
-
-.newsletter .form-control {
-      height: 50px;
-      border-color: #fff;
-      border-radius: 0 !important;
-}
-
-.form-control:focus {
-      box-shadow: none !important;
-      border: none !important;
-}
-
-::placeholder {
-      letter-spacing: 4px;
-}
-
-.newsletter .btn {
-      min-height: 50px;
-      padding: 0 30px;
-      border-radius: 0;
-      background: #000;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      font-family: Poppins !important;
-}
-
 /*--------------- contact section starts here --------------- */
 
 #contact-form {
@@ -404,7 +349,7 @@ button {
 
 .contact .icon-title {
       margin-top: 10px;
-      color: #000;
+      color: #043c74;
 }
 
 #contact-form ul {
@@ -429,7 +374,7 @@ button {
       border: none;
       resize: vertical;
       background: transparent;
-      color: #101010;
+      color: #043c74;
       font-weight: bolder;
 }
 
@@ -444,7 +389,7 @@ textarea:focus {
 }
 
 .textarea {
-      border-bottom: 1px solid #c9c9c9;
+      border-bottom: 1px solid #45c9ed;
 }
 
 @media(max-width: 900px) {
@@ -457,7 +402,7 @@ textarea:focus {
 /*--------------- footer section starts here --------------- */
 
 .footer {
-      background: #161616;
+      background: #043c74;
 }
 
 #media, #address, #mail {
@@ -474,17 +419,17 @@ textarea:focus {
 
 .footer h4 {
       font-weight: lighter;
-      color: #fff;
+      color: #b2c8d1;
 }
 
 .footer p {
-      color: grey;
+      color: cyan;
       font-weight: lighter;
 }
 
 .footer li {
       font-weight: lighter;
-      color: #fff;
+      color: #b2c8d1;
       padding-left: 20px;
       font-size: 18px !important;
 }
