@@ -4,7 +4,7 @@
 This user has created a website for DOCIB Healthcare management by referencing a sample website template. It has little inspiration from the original website.
 
 ## Instructions on how to access the website
-
+##### Please use a laptop or PC
 - On reaching this link, you will see a green button near the centre of the page which says "Code", there is a dropdown arrow next to the word. Click on it
 ![step 1](https://github.com/clyv/DOCIB-website/blob/main/step1.jpg?raw=true)
 - There will be an option to download the entire repository as a ZIP file. Click on that
