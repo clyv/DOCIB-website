@@ -11,6 +11,6 @@ This user has created a website for DOCIB Healthcare management by referencing a
 ![step 2](https://github.com/clyv/DOCIB-website/blob/main/step2.jpg?raw=true)
 - After downloading the zip file, make sure to extract files to any location of your choice (in your PC or laptop)
 ![step 3](https://github.com/clyv/DOCIB-website/blob/main/step3.jpg?raw=true)
-- You will see a file with the name "DOCIB-website" after you extract the files. Open it
+- You will see a file with the name "DOCIB-website-main" after you extract the files. Open it
 - There will be a file named "index" with the logo of the default browser you use. Double click on it to view the website!
 ![step 4](https://github.com/clyv/DOCIB-website/blob/main/step4.jpg?raw=true)
