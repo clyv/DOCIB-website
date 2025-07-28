@@ -1,5 +1,6 @@
 html, body {
       cursor: url(cursor.png), auto !important;
+      scroll-behavior: smooth;
 }
 
 * {
@@ -25,6 +26,7 @@ video {
       position: absolute;
       top: 0;
       left: 0;
+      filter: brightness(0.7) contrast(1.1);
 }
 
 .video-container::after {
@@ -34,8 +36,8 @@ video {
       left: 0;
       width: 100%;
       height: 100vh;
-      background: #043c74;
-      opacity: 0.8;
+      background: linear-gradient(135deg, rgba(4, 60, 116, 0.85) 0%, rgba(69, 201, 237, 0.65) 100%);
+      backdrop-filter: blur(0.5px);
 }
 
 .header {
@@ -43,11 +45,49 @@ video {
       top: 50%;
       left: 45%;
       transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
 }
 
 .header h1 {
-      color: #6184a2;
+      color: #ffffff;
       font-size: 80px !important;
+      font-weight: 800;
+      text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(135deg, #ffffff 0%, #b2c8d1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1.5s ease-out;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+}
+
+.hero-subtitle {
+      animation: fadeInUp 1.8s ease-out;
+      margin-top: 20px;
+}
+
+.hero-subtitle p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 24px;
+      font-weight: 300;
+      text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+      line-height: 1.4;
+      max-width: 600px;
+      margin: 0 auto;
+      letter-spacing: 0.5px;
+}
+
+@keyframes fadeInUp {
+      0% {
+            opacity: 0;
+            transform: translateY(30px);
+      }
+      100% {
+            opacity: 1;
+            transform: translateY(0);
+      }
 }
 
 @media(max-width: 900px) {
@@ -59,6 +99,11 @@ video {
             font-size: 34px !important;
             text-align: center;
       }
+      
+      .hero-subtitle p {
+            font-size: 18px;
+            padding: 0 20px;
+      }
 }
 
 /*--------------- navigation --------------- */
@@ -67,12 +112,16 @@ video {
       width: 100%;
       height: 80px;
       position: fixed;
-      z-index: 2;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
 }
 
 .nav.scrolled {
-      background-color: #043c74 !important;
-      transition: background-color 500ms linear;
+      background: rgba(4, 60, 116, 0.95) !important;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
 }
 
 .nav #brand {
@@ -89,14 +138,19 @@ video {
       color: #b2c8d1;
       font-family: Poppins !important;
       transition: all 500ms ease-out;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1px;
 }
 
 .nav #brand a:hover {
       text-decoration: none;
+      color: #45c9ed;
+      text-shadow: 0 0 10px rgba(69, 201, 237, 0.5);
 }
 
 .nav #menu {
-      float: left;
+      float: right;
       right: 40px;
       position: fixed;
 }
@@ -112,16 +166,36 @@ video {
       transition: all 500ms ease-out;
 }
 
+.nav #menu li::after {
+      content: '';
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #45c9ed, #b2c8d1);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+}
+
+.nav #menu li:hover::after {
+      width: 80%;
+}
+
 .nav #menu li a {
       font-family: Poppins !important;
       color: rgb(156, 156, 156);
       transition: all 500ms ease-out;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.5px;
 }
 
 .nav #menu li a:hover {
       text-decoration: none;
       color: #b2c8d1;
       transition: all 500ms ease-out;
+      text-shadow: 0 0 8px rgba(178, 200, 209, 0.3);
 }
 
 #toggle {
@@ -154,10 +228,11 @@ video {
 }
 
 #resize {
-      z-index: 2;
+      z-index: 15;
       top: 0px;
       position: fixed;
-      background: #0f0f0f;
+      background: linear-gradient(135deg, rgba(15, 15, 15, 0.98) 0%, rgba(4, 60, 116, 0.95) 100%);
+      backdrop-filter: blur(20px);
       width: 100%;
       height: 100%;
       visibility: hidden;
@@ -192,10 +267,13 @@ video {
 
 #resize #menu li a {
       color: #fff;
+      text-decoration: none;
 }
 
 #resize #menu li a:hover {
       text-decoration: none;
+      color: #45c9ed;
+      text-shadow: 0 0 15px rgba(69, 201, 237, 0.6);
 }
 
 #resize.active {
@@ -240,34 +318,95 @@ video {
       position: absolute;
       margin-top: 100vh;
       width: 100%;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafb 50%, #ffffff 100%);
 }
 
 section {
       padding: 140px 0;
+      position: relative;
+}
+
+section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(69, 201, 237, 0.3) 50%, transparent 100%);
+}
+
+.story {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafb 50%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+}
+
+.story::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(69, 201, 237, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
 }
 
 .section-index {
-      color:#3c6c94;
+      color: #3c6c94;
       font-weight: bolder;
       font-size: 20px;
       font-family: Poppins !important;
 }
 
 .section-heading {
-      color: grey;
+      color: #2c3e50;
       text-transform: uppercase;
       letter-spacing: 4px;
       font-size: 18px;
+      font-weight: 600;
+      position: relative;
+      margin-bottom: 30px;
+}
+
+.section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #45c9ed, #3c6c94);
+      border-radius: 2px;
 }
 
 .section-subheading {
-      color: grey;
-      margin: 10px 0;
+      color: #34495e;
+      margin: 30px 0;
+      font-weight: 300;
+      line-height: 1.6;
+}
+
+.section-subheading h1 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: #2c3e50;
+      line-height: 1.4;
+      margin-bottom: 20px;
 }
 
 .section-info {
       font-size: 24px;
-      color: grey;
+      color: #5a6c7d;
+      line-height: 1.7;
+      font-weight: 300;
 }
 
 .more {
@@ -275,37 +414,155 @@ section {
 }
 
 button {
-      background: none;
-      border: .3pt solid rgba(184, 140, 93, 0.7);
+      background: linear-gradient(135deg, transparent 0%, rgba(69, 201, 237, 0.1) 100%);
+      border: 2px solid #45c9ed;
       text-transform: uppercase !important;
       font-size: 12px !important;
       letter-spacing: 2px;
       padding: 18px 36px;
+      color: #3c6c94;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+}
+
+button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(69, 201, 237, 0.2), transparent);
+      transition: left 0.5s ease;
+}
+
+button:hover::before {
+      left: 100%;
+}
+
+button:hover {
+      background: linear-gradient(135deg, #45c9ed 0%, #3c6c94 100%);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(69, 201, 237, 0.3);
 }
 
 /*--------------- services section starts  --------------- */
 
 .services {
-      background: #043c74;
+      background: linear-gradient(135deg, #043c74 0%, #2c5a8a 50%, #043c74 100%);
+      position: relative;
+      overflow: hidden;
+}
+
+.services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+}
+
+.services .section-heading {
+      color: #b2c8d1;
+}
+
+.services .section-heading::after {
+      background: linear-gradient(90deg, #45c9ed, #b2c8d1);
 }
 
 .service {
-      margin: 30px 0;
+      margin: 60px 0;
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(69, 201, 237, 0.2);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+}
+
+.service::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(69, 201, 237, 0.1), transparent);
+      opacity: 0;
+      transition: all 0.5s ease;
+      animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+}
+
+.service:hover::before {
+      opacity: 1;
+}
+
+.service:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+      margin-bottom: 20px;
+      text-align: center;
 }
 
 .icon ion-icon {
-      font-size: 36px;
+      font-size: 48px;
       color: #45c9ed;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 10px rgba(69, 201, 237, 0.5));
+}
+
+.service:hover .icon ion-icon {
+      transform: scale(1.1) rotate(5deg);
+      color: #ffffff;
+}
+
+.services .section-heading h5 {
+      color: #b2c8d1;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 20px 0;
+      text-align: center;
 }
 
 .icon-title {
-      font-size: 28px;
+      font-size: 18px;
       margin-bottom: 4px;
-      color: rgb(182, 182, 182);
-      font-weight: lighter;
+      color: rgba(182, 182, 182, 0.9);
+      font-weight: 300;
+      line-height: 1.6;
+      text-align: center;
+      transition: all 0.3s ease;
+}
+
+.service:hover .icon-title {
+      color: rgba(255, 255, 255, 0.95);
 }
 
 /*--------------- our team section starts  --------------- */
+
+.team {
+      background: linear-gradient(135deg, #f8fafb 0%, #ffffff 50%, #f8fafb 100%);
+      position: relative;
+}
 
 .team-member, .team-img {
       position: relative;
@@ -314,6 +571,32 @@ button {
 .team-img {
       background: blue;
       height: 340px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      position: relative;
+}
+
+.team-img::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(69, 201, 237, 0.2) 100%);
+      opacity: 0;
+      transition: all 0.3s ease;
+}
+
+.team-img:hover::before {
+      opacity: 1;
+}
+
+.team-img:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
 .members {
@@ -321,24 +604,34 @@ button {
 }
 
 .team-title {
-      margin: 20px 0;
+      margin: 30px 0;
+      text-align: center;
 }
 
 .team-title h5 {
       font-size: 28px;
+      color: #2c3e50;
+      font-weight: 600;
+      margin-bottom: 10px;
 }
 
 .team-title span {
-      font-size: 20px;
+      font-size: 18px;
+      color: #5a6c7d;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 1px;
 }
 
 .team-member {
       overflow: hidden;
+      transition: all 0.3s ease;
 }
 
 .team-one {
       background: url(team-one.jpg) no-repeat 50% 50%;
       background-size: cover;
+      position: relative;
 }
 
 /*--------------- contact section starts here --------------- */
@@ -370,22 +663,20 @@ button {
 
 #contact-form input, #contact-form textarea {
       width: 100%;
-      padding: 5px;
+      padding: 15px 5px;
       border: none;
       resize: vertical;
       background: transparent;
       color: #043c74;
       font-weight: bolder;
+      border-bottom: 2px solid rgba(69, 201, 237, 0.3);
+      transition: all 0.3s ease;
 }
 
-input:focus {
+#contact-form input:focus, #contact-form textarea:focus {
       outline: none !important;
-      border: none !important;
-}
-
-textarea:focus {
-      outline: none !important;
-      border: none !important;
+      border-bottom: 2px solid #45c9ed;
+      box-shadow: 0 5px 15px rgba(69, 201, 237, 0.2);
 }
 
 .textarea {
@@ -402,29 +693,51 @@ textarea:focus {
 /*--------------- footer section starts here --------------- */
 
 .footer {
-      background: #043c74;
+      background: linear-gradient(135deg, #043c74 0%, #2c5a8a 50%, #043c74 100%);
+      position: relative;
+      overflow: hidden;
+}
+
+.footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footerGrain" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23footerGrain)"/></svg>');
 }
 
 #media, #address, #mail {
       text-align: center !important;
+      position: relative;
+      z-index: 1;
 }
 
 .footer .container {
       padding: 160px 0;
+      position: relative;
+      z-index: 1;
 }
 
 .footer li, p, h4 {
       font-size: 24px !important;
+      transition: all 0.3s ease;
 }
 
 .footer h4 {
-      font-weight: lighter;
+      font-weight: 300;
       color: #b2c8d1;
+      margin-bottom: 10px;
 }
 
 .footer p {
-      color: cyan;
-      font-weight: lighter;
+      color: #45c9ed;
+      font-weight: 300;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 16px !important;
 }
 
 .footer li {
@@ -440,10 +753,74 @@ textarea:focus {
 
 #media ul li {
       display: inline-block;
+      margin: 0 15px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.4s ease;
+      cursor: pointer;
+}
+
+#media ul li:hover {
+      background: rgba(69, 201, 237, 0.2);
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(69, 201, 237, 0.3);
+}
+
+#media ul li ion-icon {
+      font-size: 24px;
+      color: #b2c8d1;
+      transition: all 0.3s ease;
+}
+
+#media ul li:hover ion-icon {
+      color: #45c9ed;
 }
 
 @media(max-width: 900px) {
       .footer .container {
             width: 92% !important;
       }
+      
+      .section-subheading h1 {
+            font-size: 1.8rem;
+      }
+      
+      .section-info {
+            font-size: 18px;
+      }
+      
+      .service {
+            margin: 40px 0;
+            padding: 30px 15px;
+      }
+      
+      .icon ion-icon {
+            font-size: 36px;
+      }
+      
+      .services .section-heading h5 {
+            font-size: 1.4rem;
+      }
+      
+      .icon-title {
+            font-size: 16px;
+      }
+}
+
+/* Additional smooth animations */
+.wow {
+      visibility: hidden;
+}
+
+/* Scroll indicator */
+.wrapper::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #45c9ed, #3c6c94);
+      z-index: 1000;
+      transition: width 0.3s ease;
 }
